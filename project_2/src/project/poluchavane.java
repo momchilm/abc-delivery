@@ -278,11 +278,20 @@ public class poluchavane extends javax.swing.JFrame {
         int f=r.nextInt(max-min+1)+min;
         jProgressBar1.setValue(f);
         
-        if(f==1){jTextField2.setText("В склада");}
+        switch (f){
+            case 1: jTextField2.setText("В склада"); break;
+            case 2: jTextField2.setText("На път към офиса"); break;
+            case 3: jTextField2.setText("В офиса"); break;
+            case 4: jTextField2.setText("На път към вас"); break;
+            case 5: jTextField2.setText("На локация"); break;
+            default: break;
+        }
+        
+        /*if(f==1){jTextField2.setText("В склада");}
         if(f==2){jTextField2.setText("На път към офиса");}
         if(f==3){jTextField2.setText("В офиса");}
         if(f==4){jTextField2.setText("На път към вас");}
-        if(f==5){jTextField2.setText("На локация");}
+        if(f==5){jTextField2.setText("На локация");}*/
     }
     catch(Exception e){
         JOptionPane.showMessageDialog(null,"Грешен код");
