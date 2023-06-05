@@ -480,8 +480,8 @@ public class cena extends javax.swing.JFrame {
                // writer.write("\n");
                 writer.close();
                 JOptionPane.showMessageDialog(null,"Success");
-                new login().setVisible(true);
-                this.setVisible(false);
+               /* new login().setVisible(true);
+                this.setVisible(false);*/
             }catch(Exception e){
                 JOptionPane.showMessageDialog(rootPane, "Error");
             }
