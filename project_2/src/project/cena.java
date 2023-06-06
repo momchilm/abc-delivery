@@ -447,7 +447,7 @@ public class cena extends javax.swing.JFrame {
         if (jRadioButton3.isSelected()) {
             t = t + 3;
         }
-        String email1;
+       /* String email1;
         email1 = Data.getLogemail();
         String pass1;
         pass1 = Data.getLogpass();
@@ -472,7 +472,7 @@ public class cena extends javax.swing.JFrame {
             e.printStackTrace();
         }*/
        //f(greshka == false){
-            try{
+           /* try{
                 FileWriter writer = new FileWriter(myObj, true);
                 writer.write("marin");
                 writer.write(" ");
@@ -482,9 +482,9 @@ public class cena extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Success");
                /* new login().setVisible(true);
                 this.setVisible(false);*/
-            }catch(Exception e){
+            /*}catch(Exception e){
                 JOptionPane.showMessageDialog(rootPane, "Error");
-            }
+            }*/
         //}
         //JOptionPane.showMessageDialog(null,"Имате опция да кажете след колко време можете да вземете пратката, като това става от бутона по - долу -> Време за доставка ");
     }//GEN-LAST:event_jButton1ActionPerformed

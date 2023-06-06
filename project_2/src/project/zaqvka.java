@@ -5,6 +5,8 @@
  */
 package project;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
@@ -40,12 +42,12 @@ public class zaqvka extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        numbers = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        city = new javax.swing.JTextField();
+        adress = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -71,9 +73,9 @@ public class zaqvka extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Фамилия:");
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        numbers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                numbersActionPerformed(evt);
             }
         });
 
@@ -84,6 +86,12 @@ public class zaqvka extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setText("Доставка до:");
+
+        city.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cityActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Стандартна", "Експресна", "ВИП" }));
 
@@ -146,7 +154,7 @@ public class zaqvka extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(adress, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -154,11 +162,11 @@ public class zaqvka extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(numbers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(city, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -198,7 +206,7 @@ public class zaqvka extends javax.swing.JFrame {
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numbers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -206,11 +214,11 @@ public class zaqvka extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 33, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,14 +250,14 @@ public class zaqvka extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void numbersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numbersActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_numbersActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      
         String c="";
-   c="ПОТВЪРЖДЕНИЕ НА ЗАЯВКА"+"\n"+"Име на получател: "+jTextField1.getText()+" "+jTextField2.getText()+"\n"+"Телефон: "+jTextField4.getText()+"\n"+"Доставка до: "+jComboBox2.getSelectedItem()+"\n"+"Град: "+jTextField5.getText()+"\n"+"Адрес: "+jTextField3.getText()+"\n"+"Вид доставка: "+jComboBox1.getSelectedItem()+"\n"+"Начин на плащане: "+jComboBox3.getSelectedItem();
+   c="ПОТВЪРЖДЕНИЕ НА ЗАЯВКА"+"\n"+"Име на получател: "+jTextField1.getText()+" "+jTextField2.getText()+"\n"+"Телефон: "+numbers.getText()+"\n"+"Доставка до: "+jComboBox2.getSelectedItem()+"\n"+"Град: "+city.getText()+"\n"+"Адрес: "+adress.getText()+"\n"+"Вид доставка: "+jComboBox1.getSelectedItem()+"\n"+"Начин на плащане: "+jComboBox3.getSelectedItem();
    //System.out.print(c);
     JOptionPane.showMessageDialog(null,c);
     
@@ -263,7 +271,7 @@ public class zaqvka extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null,"Твоя код за получване на поръчката е: \n" + a);
         //System.out.println(a);
-      //  for(int i = 1000; i <= 9999; i++){
+      //  for(int i = 1000; i <= 9 999; i++){
         //    System.out.println(i);
           //  br ++ ;
             
@@ -274,6 +282,55 @@ public class zaqvka extends javax.swing.JFrame {
         obj.getLoginime();
         obj.getLoginpass();
         System.out.println(obj.getLoginime());*/
+        
+        String email1;
+        email1 = Data.getLogemail();
+        String pass1;
+        pass1 = Data.getLogpass();
+        System.out.println(pass1);
+        System.out.println(email1);
+        //System.out.print(t);
+        //jTextField1.setText("Цена за доставка: " + t + "лв.");
+        String imefile;
+        imefile = email1 + ".txt";
+        String data = null;
+        //try {
+            File myObj = new File(imefile);
+            //Scanner myReader = new Scanner(myObj);
+            
+           /* while (myReader.hasNextLine()) {
+                data = myReader.nextLine();
+                System.out.println(data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }*/
+       //f(greshka == false){
+       String phone1;
+       String city1;
+       String adress1;
+       phone1 = numbers.getText();
+       city1 = city.getText();
+       adress1 = adress.getText();
+       //System.out.println(phone1 + city1 + adress1);
+       
+        try{
+                FileWriter writer = new FileWriter(myObj, true);
+                ///writer.write();
+                writer.write("phone number-" + phone1 + "\n");
+                writer.write("city-" + city1 + "\n");
+                writer.write("adress-" + adress1 + "\n");
+                //writer.write(lastname1 + " " + password1 + " " + email1);
+               // writer.write("\n");
+                writer.close();
+                JOptionPane.showMessageDialog(null,"Success");
+               /* new login().setVisible(true);
+                this.setVisible(false);*/
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(rootPane, "Error");
+            }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -284,6 +341,10 @@ setVisible(false);        // TODO add your handling code here:
         new pl().setVisible(true);
         this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cityActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,6 +382,8 @@ setVisible(false);        // TODO add your handling code here:
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField adress;
+    private javax.swing.JTextField city;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
@@ -339,8 +402,6 @@ setVisible(false);        // TODO add your handling code here:
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField numbers;
     // End of variables declaration//GEN-END:variables
 }
