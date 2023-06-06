@@ -191,7 +191,15 @@ public class login extends javax.swing.JFrame {
         
         
         for(int i = 0; i < a.length; i++){
-            if(a[i].matches(ime)){
+            switch(a[i]){
+            case "[A-Z]{1}[a-z]{1,}": imena.add(a[i]);break;
+            case "[a-z]{1}[a-z0-9]{1,}[@](abv.bg)}": imejli.add(a[i]);break;
+            case "[a-z]{1}[a-z0-9]{1,}[@](gmail.com)": imejli.add(a[i]);break;
+            case "[a-z]{1}[a-z0-9]{1,}[@](yahoo.com)": imejli.add(a[i]);break;
+            case "[a-zA-Z0-9_.']{1,}": paroli.add(a[i]);break;
+            default: break;
+            }
+           /* if(a[i].matches(ime)){
                 imena.add(a[i]);
             }
             else if(a[i].matches(abv) || a[i].matches(gmail) || a[i].matches(yahoo)){
@@ -199,7 +207,7 @@ public class login extends javax.swing.JFrame {
             }
             else if(a[i].matches(parola)){
                 paroli.add(a[i]);
-            }
+            }*/
         }
         System.out.println(imejli);
         System.out.println(paroli);
