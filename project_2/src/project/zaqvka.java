@@ -80,7 +80,7 @@ public class zaqvka extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("Телефон:\n");
+        jLabel3.setText("Телефон: ");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Офис", "Адрес", "Автомат", " " }));
 
@@ -315,19 +315,26 @@ public class zaqvka extends javax.swing.JFrame {
        city1 = city.getText();
        adress1 = adress.getText();
        //System.out.println(phone1 + city1 + adress1);
-       
-        try{
+        boolean firsttime = true;
+        if( myObj.length() > 0){
+            firsttime = false;
+        }
+        try{    
+                if(firsttime == true){
                 FileWriter writer = new FileWriter(myObj, true);
                 ///writer.write();
+                writer.write("Personal Data:" + "\n");
                 writer.write("phone number-" + phone1 + "\n");
                 writer.write("city-" + city1 + "\n");
                 writer.write("adress-" + adress1 + "\n");
+                
                 //writer.write(lastname1 + " " + password1 + " " + email1);
                // writer.write("\n");
                 writer.close();
                 JOptionPane.showMessageDialog(null,"Success");
                /* new login().setVisible(true);
                 this.setVisible(false);*/
+                }
             }catch(Exception e){
                 JOptionPane.showMessageDialog(rootPane, "Error");
             }
