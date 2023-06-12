@@ -4,11 +4,96 @@
  */
 package project;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author nikne
  */
 public class maplocation extends javax.swing.JFrame {
+
+    class Graph {
+   private List<Node> nodes;
+
+   public Graph() {
+       nodes = new ArrayList<>();
+   }
+
+   public void addNode(String label) {
+       Node node = new Node(label);
+       nodes.add(node);
+   }
+
+   public void addEdge(String sourceLabel, String destinationLabel, int weight) {
+       Node source = getNodeByLabel(sourceLabel);
+       Node destination = getNodeByLabel(destinationLabel);
+       if (source == null || destination == null) {
+           throw new IllegalArgumentException("Invalid node!");
+       }
+       source.addEdge(destination, weight);
+       // Uncomment the following line for an undirected graph
+       // destination.addEdge(source, weight);
+   }
+
+   public List<Edge> getNeighbors(String label) {
+       Node node = getNodeByLabel(label);
+       if (node == null) {
+           throw new IllegalArgumentException("Invalid node!");
+       }
+       return node.getEdges();
+   }
+
+   private Node getNodeByLabel(String label) {
+       for (Node node : nodes) {
+           if (node.getLabel().equals(label)) {
+               return node;
+           }
+       }
+       return null;
+   }
+   private  class Node {
+       private String label;
+       private List<Edge> edges;
+
+       public Node(String label) {
+           this.label = label;
+           this.edges = new ArrayList<>();
+       }
+
+       public String getLabel() {
+           return label;
+       }
+
+       public void addEdge(Node destination, int weight) {
+           Edge edge = new Edge(destination, weight);
+           edges.add(edge);
+       }
+
+       public List<Edge> getEdges() {
+           return edges;
+       }
+   }
+
+   private  class Edge {
+       private Node destination;
+       private int weight;
+
+       public Edge(Node destination, int weight) {
+           this.destination = destination;
+           this.weight = weight;
+       }
+
+       public Node getDestination() {
+           return destination;
+       }
+
+       public int getWeight() {
+           return weight;
+       }
+   }
+}
+
 
     /**
      * Creates new form maplocation
@@ -65,10 +150,56 @@ public class maplocation extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String Vidin,Sofia,Blagoevgrad,Pleven,Plovdiv,Svilengrad,Turnovo,Burgas,Varna,Ruse;
-        
-        
-        
+        String Vidin, Sofia, Blagoevgrad, Pleven, Plovdiv, Svilengrad, Turnovo, Burgas, Varna, Ruse;
+
+        int numNodes = 5;
+         Graph graph = new Graph();
+
+       // Adding nodes
+       graph.addNode("Русе");
+       graph.addNode("Варна");
+       graph.addNode("Велико Търново");
+       graph.addNode("Бургас");
+       graph.addNode("Свиленград");
+       graph.addNode("Пловдив");
+       graph.addNode("Плевен");
+       graph.addNode("Благоевград");
+       graph.addNode("София");
+       graph.addNode("Видин");
+
+       // Adding weighted edges
+       graph.addEdge("Русе", "Варна", 192);
+       graph.addEdge("Варна", "Русе", 192);
+       graph.addEdge("Русе", "Велико Търново", 108);
+       graph.addEdge("Велико Търново", "Русе", 108);
+       graph.addEdge("Варна", "Бургас", 129);
+       graph.addEdge("Бургас", "Варна", 129);
+       graph.addEdge("Бургас", "Пловдив", 254);
+       graph.addEdge("Пловдив", "Бургас", 254);
+       graph.addEdge("Пловдив", "Свиленград", 151);
+       graph.addEdge("Свиленград", "Пловдив", 151);
+       graph.addEdge("Пловдив", "София", 144);
+       graph.addEdge("София", "Пловдив", 144);
+       graph.addEdge("Свиленград", "Благоевград", 374);
+       graph.addEdge("Благоевград", "Свиленград", 374);
+       graph.addEdge("София", "Благоевград", 102);
+       graph.addEdge("Благоевград", "София", 102);
+       graph.addEdge("София", "Видин", 204);
+       graph.addEdge("Видин", "София", 204);
+       graph.addEdge("Видин", "Плевен", 206);
+       graph.addEdge("Плевен", "Видин", 206);
+       graph.addEdge("Плевен", "Велико Търново", 121);
+       graph.addEdge("Велико Търново", "Плевен", 121);
+
+       // Getting neighbors of a node
+       List<Graph.Edge> neighbors = graph.getNeighbors("Велико Търново");
+       System.out.println("Neighbors of Велико Търново: ");
+       for (Graph.Edge edge : neighbors) {
+           Graph.Node destination = edge.getDestination();
+           int weight = edge.getWeight();
+           System.out.println("Destination: " + destination.getLabel() + ", Weight: " + weight);
+       }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
