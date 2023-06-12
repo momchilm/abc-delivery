@@ -292,7 +292,7 @@ public class zaqvka extends javax.swing.JFrame {
         //System.out.print(t);
         //jTextField1.setText("Цена за доставка: " + t + "лв.");
         String imefile;
-        imefile = email1 + ".txt";
+        imefile = a + ".txt";
         String data = null;
         //try {
             File myObj = new File(imefile);
