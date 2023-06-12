@@ -65,7 +65,7 @@ public class kontakt extends javax.swing.JFrame {
         jLabel4.setText("\n1 7001 7001 - за чужбина\n");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setText("\nЦентрален офис: София, ул. Абагар 22, ет. 5\n");
+        jLabel5.setText(" Централен офис: София, ул. Абагар 22, ет. 5 ");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("\ne-mail: office@abv.bg");

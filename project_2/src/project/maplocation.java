@@ -4,12 +4,14 @@
  */
 package project;
 
+import java.util.List;
+
 /**
  *
  * @author nikne
  */
 public class maplocation extends javax.swing.JFrame {
-
+    private List<List<Edge>> adjacencyList;
     /**
      * Creates new form maplocation
      */
@@ -34,6 +36,12 @@ public class maplocation extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/map(2).jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
 
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -57,6 +65,13 @@ public class maplocation extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String Vidin,Sofia,Blagoevgrad,Pleven,Plovdiv,Svilengrad,Turnovo,Burgas,Varna,Ruse;
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
