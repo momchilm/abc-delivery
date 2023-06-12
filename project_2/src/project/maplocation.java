@@ -4,14 +4,12 @@
  */
 package project;
 
-import java.util.List;
-
 /**
  *
  * @author nikne
  */
 public class maplocation extends javax.swing.JFrame {
-    private List<List<Edge>> adjacencyList;
+
     /**
      * Creates new form maplocation
      */
