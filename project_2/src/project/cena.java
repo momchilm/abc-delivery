@@ -351,18 +351,6 @@ public class cena extends javax.swing.JFrame {
 
         int cenaa = 0;
         cena cn = new cena();
-        /*if ("До 10 дена след пристигане".equals(jComboBox4.getSelectedItem())) {
-            System.out.println("aa");;
-            cenaa = 5;
-        }
-        if ("Между 10 и 20 дена след пристигане".equals(jComboBox4.getSelectedItem())) {
-            System.out.println("bb");
-            cenaa = 15;
-        }
-        if ("До 30 дена след пристигане".equals(jComboBox4.getSelectedItem())) {
-            System.out.println("cc");
-            cenaa = 25;
-        }*/
         String selection;
         selection = (String) jComboBox2.getSelectedItem();
         
@@ -378,21 +366,7 @@ public class cena extends javax.swing.JFrame {
         cout(cn.getCena());
 
         int s = 0, p = 0, c = 0, t = 0;
-       /* if ("България - 5лв.".equals(jComboBox1.getSelectedItem())) {
-            s = 5;
-        } else if ("Европейски съюз - 10лв.".equals(jComboBox1.getSelectedItem())) {
-            s = 10;
-        } else if ("Европа - 15лв.".equals(jComboBox1.getSelectedItem())) {
-            s = 15;
-        } else if ("Азия - 20лв.".equals(jComboBox1.getSelectedItem())) {
-            s = 20;
-        } else if ("Африка - 20лв.".equals(jComboBox1.getSelectedItem())) {
-            s = 20;
-        } else if ("Австралия - 30лв.".equals(jComboBox1.getSelectedItem())) {
-            s = 30;
-        } else if ("Северна/Южна Америка - 35лв.".equals(jComboBox1.getSelectedItem())) {
-            s = 35;
-        }*/
+     
         selection = (String)jComboBox1.getSelectedItem();
         switch(selection){
             case "България - 5лв.": s = 5;break;
@@ -412,14 +386,7 @@ public class cena extends javax.swing.JFrame {
            case "ВИП": p = 20;break;
            default: break;
        }
-        /*if ("Стандартна".equals(jComboBox2.getSelectedItem())) {
-            p = 0;
-        } else if ("Експресна".equals(jComboBox2.getSelectedItem())) {
-            p = 10;
-        } else if ("ВИП".equals(jComboBox2.getSelectedItem())) {
-            p = 20;
-        }
-        */
+        
         selection = (String)jComboBox3.getSelectedItem();
         switch(selection){
             case "под 1 кг": c = 0;break;
@@ -427,16 +394,8 @@ public class cena extends javax.swing.JFrame {
             case "повече от 10 кг": c = 20;break;
             default:break;
         }
-       /* if ("под 1 кг".equals(jComboBox3.getSelectedItem())) {
-            c = 0;
-        } else if ("1-10 кг".equals(jComboBox3.getSelectedItem())) {
-            c = 10;
-        } else if ("повече от 10 кг".equals(jComboBox3.getSelectedItem())) {
-            c = 20;
-        }*/
+       
         t = s + p + c + cn.getCena();
-        //System.out.print(s+p+c);
-        //Boolean selection2 = (Boolean)jRadioButton1.isSelected();
         
         if (jRadioButton1.isSelected()) {
             t = t + 5;
@@ -447,6 +406,7 @@ public class cena extends javax.swing.JFrame {
         if (jRadioButton3.isSelected()) {
             t = t + 3;
         }
+        jTextField1.setText("Цена за доставка: " + t + "лв.");
        /* String email1;
         email1 = Data.getLogemail();
         String pass1;
@@ -454,7 +414,7 @@ public class cena extends javax.swing.JFrame {
         System.out.println(pass1);
         System.out.println(email1);
         System.out.print(t);
-        jTextField1.setText("Цена за доставка: " + t + "лв.");
+        
         String imefile;
         imefile = email1 + ".txt";
         String data = null;

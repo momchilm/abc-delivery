@@ -258,7 +258,7 @@ public class zaqvka extends javax.swing.JFrame {
      
         String c="";
    c="ПОТВЪРЖДЕНИЕ НА ЗАЯВКА"+"\n"+"Име на получател: "+jTextField1.getText()+" "+jTextField2.getText()+"\n"+"Телефон: "+numbers.getText()+"\n"+"Доставка до: "+jComboBox2.getSelectedItem()+"\n"+"Град: "+city.getText()+"\n"+"Адрес: "+adress.getText()+"\n"+"Вид доставка: "+jComboBox1.getSelectedItem()+"\n"+"Начин на плащане: "+jComboBox3.getSelectedItem();
-   //System.out.print(c);
+   System.out.print(c);
     JOptionPane.showMessageDialog(null,c);
     
     
@@ -268,7 +268,8 @@ public class zaqvka extends javax.swing.JFrame {
     
        int br = 0;
         a = rand.nextInt(max - min + 1 ) + min;
-        
+        Code.setCode(a);
+        //System.out.println(Code.getCode());
         JOptionPane.showMessageDialog(null,"Твоя код за получване на поръчката е: \n" + a);
         //System.out.println(a);
       //  for(int i = 1000; i <= 9 999; i++){
@@ -283,9 +284,9 @@ public class zaqvka extends javax.swing.JFrame {
         obj.getLoginpass();
         System.out.println(obj.getLoginime());*/
         String citty = city.getText();
-        destination.setDestination(citty);
+        Destination.setDestination(citty);
         System.out.println(citty);
-        String city2 = (String)destination.getDestination();
+        String city2 = (String)Destination.getDestination();
         System.out.println(city2);
         String email1;
         email1 = Data.getLogemail();
@@ -296,7 +297,7 @@ public class zaqvka extends javax.swing.JFrame {
         //System.out.print(t);
         //jTextField1.setText("Цена за доставка: " + t + "лв.");
         String imefile;
-        imefile = a + ".txt";
+        imefile = email1 + ".txt";
         String data = null;
         //try {
             File myObj = new File(imefile);

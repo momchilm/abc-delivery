@@ -146,7 +146,7 @@ public class maplocation extends javax.swing.JFrame {
      */
     public maplocation() {
         initComponents();
-        destination = JOptionPane.showInputDialog("Input destination");
+        destination = Destination.getDestination();
         nachalna = "Русе";
     }
 

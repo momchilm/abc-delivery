@@ -50,15 +50,22 @@ public class login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         name = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
-        password = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        password = new javax.swing.JPasswordField();
+        seepassword = new javax.swing.JButton();
+        unvisiblepassword = new javax.swing.JButton();
+
+        jButton3.setText("jButton3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(252, 239, 232));
 
+        jLabel1.setBackground(new java.awt.Color(252, 239, 232));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Log in Here");
 
@@ -72,9 +79,6 @@ public class login extends javax.swing.JFrame {
                 emailActionPerformed(evt);
             }
         });
-
-        password.setForeground(new java.awt.Color(204, 204, 204));
-        password.setText("Password");
 
         jButton1.setText("Log in");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -90,6 +94,22 @@ public class login extends javax.swing.JFrame {
             }
         });
 
+        password.setText("jPasswordField1");
+
+        seepassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/newocho.png"))); // NOI18N
+        seepassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seepasswordActionPerformed(evt);
+            }
+        });
+
+        unvisiblepassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/crossed-eye-icon-11550225630lc1hsoggeb (1).png"))); // NOI18N
+        unvisiblepassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unvisiblepasswordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,17 +121,19 @@ public class login extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(107, 107, 107))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(77, 77, 77))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                            .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                            .addComponent(password)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(seepassword, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(unvisiblepassword, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,13 +144,16 @@ public class login extends javax.swing.JFrame {
                 .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(seepassword, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(unvisiblepassword, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         pack();
@@ -223,6 +248,9 @@ public class login extends javax.swing.JFrame {
                 imejlite = true;
                 imejli.get(i);
                 Data.setLogemail(imejli.get(i));
+                System.out.println(
+                
+                );
             }
             if(password1.equals(paroli.get(i))){
                 parolite = true;
@@ -230,6 +258,7 @@ public class login extends javax.swing.JFrame {
                 Data.setLogpass(paroli.get(i));
             }
         }
+        System.out.println(Data.getLogemail());
         System.out.println(obj.getLogemail());
         System.out.println(obj.getLogpass());
         
@@ -244,6 +273,15 @@ public class login extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void seepasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seepasswordActionPerformed
+
+        password.setEchoChar((char)0);
+    }//GEN-LAST:event_seepasswordActionPerformed
+
+    private void unvisiblepasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unvisiblepasswordActionPerformed
+       password.setEchoChar('*');
+    }//GEN-LAST:event_unvisiblepasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,8 +324,11 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JTextField email;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField name;
-    private javax.swing.JTextField password;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JButton seepassword;
+    private javax.swing.JButton unvisiblepassword;
     // End of variables declaration//GEN-END:variables
 }

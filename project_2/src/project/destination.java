@@ -10,23 +10,26 @@ import java.util.logging.Logger;
  *
  * @author nikolavn1
  */
-public class destination {
-    public static String destination;
+public class Destination {
+    private static String destination;
     //private static final Logger LOG = Logger.getLogger(destination.class.getName());
 
+    public Destination(String destination) {
+        this.destination = destination;
+    }
+    
     public static String getDestination() {
         return destination;
     }
 
     public static void  setDestination(String destination) {
-        destination = destination;
+        Destination.destination = destination;
     }
 
-    public destination(String destination) {
-        this.destination = destination;
-    }
     
-    public destination() {
+    
+    public Destination() {
         this("");
     }
+    
 }
