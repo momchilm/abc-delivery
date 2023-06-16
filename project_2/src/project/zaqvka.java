@@ -282,7 +282,11 @@ public class zaqvka extends javax.swing.JFrame {
         obj.getLoginime();
         obj.getLoginpass();
         System.out.println(obj.getLoginime());*/
-        
+        String citty = city.getText();
+        destination.setDestination(citty);
+        System.out.println(citty);
+        String city2 = (String)destination.getDestination();
+        System.out.println(city2);
         String email1;
         email1 = Data.getLogemail();
         String pass1;
