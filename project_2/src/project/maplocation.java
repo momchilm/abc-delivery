@@ -238,6 +238,8 @@ public class maplocation extends javax.swing.JFrame {
        graph.addEdge("Плевен", "Видин", 206);
        graph.addEdge("Плевен", "Велико Търново", 121);
        graph.addEdge("Велико Търново", "Плевен", 121);
+       graph.addEdge("София" , "Плевен", 132);
+       graph.addEdge("Плевен" , "София", 132);
 
        // Взимане на съседите
        /*List<Graph.Edge> neighbors = graph.getNeighbors("Велико Търново");
