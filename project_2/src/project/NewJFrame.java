@@ -26,7 +26,7 @@ public class NewJFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         
         switch(selection){
-            case "Поръчки": ;break;
+            case "Exit":this.setVisible(false);break;
             case "Log out":this.setVisible(false);new login().setVisible(true); break;
             default:break;
         }
@@ -56,6 +56,8 @@ public class NewJFrame extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
         jPanel3.setBackground(new java.awt.Color(252, 239, 232));
 
@@ -101,7 +103,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/images.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/pictures/images.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 40)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(242, 13, 36));
@@ -125,9 +127,9 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/1741329 (1).png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/pictures/1741329 (1).png"))); // NOI18N
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "↓", "Log out" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "↓", "Log out", "Exit" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -244,6 +246,40 @@ dispose();*/
         } 
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
+        public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new NewJFrame().setVisible(true);
+            }
+        });
+    }
+    
     /**
      * @param args the command line arguments
      */

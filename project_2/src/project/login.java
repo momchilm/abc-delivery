@@ -101,14 +101,14 @@ public class login extends javax.swing.JFrame {
 
         password.setText("jPasswordField1");
 
-        seepassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/newocho.png"))); // NOI18N
+        seepassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/pictures/newocho.png"))); // NOI18N
         seepassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seepasswordActionPerformed(evt);
             }
         });
 
-        unvisiblepassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/crossed-eye-icon-11550225630lc1hsoggeb (1).png"))); // NOI18N
+        unvisiblepassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/pictures/crossed-eye-icon-11550225630lc1hsoggeb (1).png"))); // NOI18N
         unvisiblepassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 unvisiblepasswordActionPerformed(evt);
@@ -231,9 +231,9 @@ public class login extends javax.swing.JFrame {
         String ime;
         ime = "[A-Z]{1}[a-z]{1,}";
         String abv, gmail, yahoo;
-        abv = "[a-z]{1}[a-z0-9]{1,}[@](abv.bg)";
-        gmail = "[a-z]{1}[a-z0-9]{1,}[@](gmail.com)";
-        yahoo = "[a-z]{1}[a-z0-9]{1,}[@](yahoo.com)";
+        abv = "[a-z]{1}[a-z0-9.]{1,}[@](abv.bg)";
+        gmail = "[a-z]{1}[a-z0-9.]{1,}[@](gmail.com)";
+        yahoo = "[a-z]{1}[a-z0-9.]{1,}[@](yahoo.com)";
         String parola;
         parola = "[a-zA-Z0-9_.']{1,}";
         

@@ -160,7 +160,7 @@
     <Component class="javax.swing.JButton" name="seepassword">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/project/newocho.png"/>
+          <Image iconType="3" name="/project/pictures/newocho.png"/>
         </Property>
       </Properties>
       <Events>
@@ -170,7 +170,7 @@
     <Component class="javax.swing.JButton" name="unvisiblepassword">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/project/crossed-eye-icon-11550225630lc1hsoggeb (1).png"/>
+          <Image iconType="3" name="/project/pictures/crossed-eye-icon-11550225630lc1hsoggeb (1).png"/>
         </Property>
       </Properties>
       <Events>
