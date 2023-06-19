@@ -146,6 +146,7 @@ public class maplocation extends javax.swing.JFrame {
      */
     public maplocation() {
         initComponents();
+        setLocationRelativeTo(null);
         destination = Destination.getDestination();
         nachalna = "Русе";
     }
@@ -250,7 +251,9 @@ public class maplocation extends javax.swing.JFrame {
        graph.addEdge("Хасково", "Стара Загора",60);
        graph.addEdge("Бургас", "Стара Загора",172);
        graph.addEdge("Стара Загора", "Бургас",172);
-        
+       graph.addEdge("Хасково", "Свиленград", 74);
+       graph.addEdge("Свиленград", "Хасково",74);
+               
        // Взимане на съседите
        /*List<Graph.Edge> neighbors = graph.getNeighbors("Велико Търново");
        System.out.println("Neighbors of Велико Търново: ");
@@ -267,7 +270,7 @@ public class maplocation extends javax.swing.JFrame {
         List<String> shortestPath = graph.shortestPathFromATo(destination);
         
         
-       System.out.println("Shortest path from" + nachalna + "to" + destination + ": ");
+       System.out.println("Shortest path from " + nachalna + "to " + destination + ": ");
        for (String node : shortestPath) {
            System.out.print(node + " ");
         }
@@ -276,37 +279,7 @@ public class maplocation extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(maplocation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(maplocation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(maplocation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(maplocation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new maplocation().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
