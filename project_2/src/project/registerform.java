@@ -4,8 +4,6 @@ package project;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
-
 import java.awt.Color;
 import java.io.File;
 import java.io.FileWriter;
@@ -33,16 +31,14 @@ public class registerform extends javax.swing.JFrame {
 
     public registerform() throws InterruptedException {
         initComponents();
-        
+        setLocationRelativeTo(null);
         firstname.setForeground(Color.black);
         lastname.setForeground(Color.black);
         password.setForeground(Color.black);
         repassowrd.setForeground(Color.black);
-        
-        
-       
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,6 +67,8 @@ public class registerform extends javax.swing.JFrame {
         repassowrd = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -128,14 +126,14 @@ public class registerform extends javax.swing.JFrame {
 
         jLabel8.setText("retype password");
 
-        seepassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/newocho.png"))); // NOI18N
+        seepassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/pictures/newocho.png"))); // NOI18N
         seepassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seepasswordActionPerformed(evt);
             }
         });
 
-        unvisiblepassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/crossed-eye-icon-11550225630lc1hsoggeb (1).png"))); // NOI18N
+        unvisiblepassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/pictures/crossed-eye-icon-11550225630lc1hsoggeb (1).png"))); // NOI18N
         unvisiblepassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 unvisiblepasswordActionPerformed(evt);
@@ -240,47 +238,28 @@ public class registerform extends javax.swing.JFrame {
         email1 = email.getText();
         password1 = password.getText();
         repassword1 = repassowrd.getText();
-        /*LinkedList<String> firstnames = new LinkedList<>();
-        LinkedList<String> lastnames = new LinkedList<>();
-        LinkedList<String> emails = new LinkedList<>();
-        LinkedList<String> passwords = new LinkedList<>();
-        LinkedList<String> repasswords = new LinkedList<>();*/
+      
         File firstnames = new File("firstnames.txt");
         File lastnames = new File("Lastnames.txt");
         File emails = new File("emails.txt");
         File passwords = new File("passwords.txt");
         File repasswords = new File("repasswords.txt");
 
-        /*File file = new File("zad1.txt");
-        PrintStream writer = new PrintStream(file);
-        Scanner reader = new Scanner(file);
-        
-         */
+       
         boolean greshka = false;
         String ime;
         ime = "[A-Z]{1}[a-z]{1,}";
         String abv, gmail, yahoo;
-        abv = "[a-z]{1}[a-z0-9]{1,}[@](abv.bg)";
-        gmail = "[a-z]{1}[a-z0-9]{1,}[@](gmail.com)";
-        yahoo = "[a-z]{1}[a-z0-9]{1,}[@](yahoo.com)";
+        abv = "[a-z]{1}[a-z0-9.]{1,}[@](abv.bg)";
+        gmail = "[a-z]{1}[a-z0-9.]{1,}[@](gmail.com)";
+        yahoo = "[a-z]{1}[a-z0-9.]{1,}[@](yahoo.com)";
         String parola;
-        parola = "[a-z]{1}[a-zA-Z0-9_.']{1,}";
-        /*if(firstname1.matches(ime)){
-            System.out.println("firstname");
+        parola = "[a-zA-Z0-9_.'/]{1,}";
+       
+        if (email1.matches(abv) || email1.matches(gmail) || email1.matches(yahoo)); else {
+            greshka = true;
         }
-        if(lastname1.matches(ime)){
-            System.out.println("lastname");
-        }
-        if(email1.matches(abv) || email1.matches(gmail) || email1.matches(yahoo)){
-            System.out.println("mail");
-        }
-        if(password1.matches(parola))System.out.println("parola");
-        if(repassword1.matches(parola)){
-            System.out.println("parolaaa");
-        }*/
-        if(email1.matches(abv) || email1.matches(gmail) || email1.matches(yahoo));
-        else greshka = true;
-        
+
         if (!firstname1.matches(ime) || !lastname1.matches(ime) || !password1.matches(parola)
                 || !repassword1.matches(parola)) {
             greshka = true;
@@ -293,38 +272,45 @@ public class registerform extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "You have entered incorrect data, please enter again!\nIncorrect data will be colored in red!");
             if (!firstname1.matches(ime)) {
                 firstname.setForeground(Color.red);
-            }
-            if (!lastname1.matches(ime)) {
+            } else {
                 firstname.setForeground(Color.black);
+            }
+
+            if (!lastname1.matches(ime)) {
+                lastname.setForeground(Color.red);
+            } else {
+                lastname.setForeground(Color.black);
             }
             if (!password1.matches(parola)) {
                 password.setForeground(Color.red);
+            } else {
+                repassowrd.setForeground(Color.red);
             }
             if (!repassword1.matches(parola) || !repassword1.equals(password1)) {
                 repassowrd.setForeground(Color.red);
+            } else {
+                repassowrd.setForeground(Color.black);
             }
             if (!email1.matches(abv) && !email1.matches(gmail) && !email1.matches(yahoo)) {
                 email.setForeground(Color.red);
+            } else {
+                email.setForeground(Color.black);
             }
-        } else {
-            firstname.setForeground(Color.black);
-            lastname.setForeground(Color.black);
-            password.setForeground(Color.black);
-            repassowrd.setForeground(Color.black);
-            email.setForeground(Color.black);
+
         }
-        if(greshka == false){
-            try{
+
+        if (greshka == false) {
+            try {
                 FileWriter writer = new FileWriter("registration.txt", true);
                 writer.write(firstname1);
                 writer.write(" ");
                 writer.write(lastname1 + " " + password1 + " " + email1);
                 writer.write("\n");
                 writer.close();
-                JOptionPane.showMessageDialog(null,"Success");
+                JOptionPane.showMessageDialog(null, "Success");
                 new login().setVisible(true);
                 this.setVisible(false);
-            }catch(Exception e){
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(rootPane, "Error");
             }
         }
@@ -336,11 +322,13 @@ public class registerform extends javax.swing.JFrame {
 
     private void seepasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seepasswordActionPerformed
 
-        password.setEchoChar((char)0);
+        password.setEchoChar((char) 0);
+        repassowrd.setEchoChar((char) 0);
     }//GEN-LAST:event_seepasswordActionPerformed
 
     private void unvisiblepasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unvisiblepasswordActionPerformed
         password.setEchoChar('*');
+        repassowrd.setEchoChar('*');
     }//GEN-LAST:event_unvisiblepasswordActionPerformed
 
     private void repassowrdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repassowrdActionPerformed
@@ -350,41 +338,7 @@ public class registerform extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) throws FileNotFoundException {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(registerform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(registerform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(registerform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(registerform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new registerform().setVisible(true);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(registerform.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField email;

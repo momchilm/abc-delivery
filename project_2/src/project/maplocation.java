@@ -4,9 +4,12 @@
  */
 package project;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -106,6 +109,55 @@ public class maplocation extends javax.swing.JFrame {
        }
        return null;
    }
+   public int shortestPathLengthFromATo(String destinationLabel) {
+        Node startNode = getNodeByLabel("Русе");
+        Node destinationNode = getNodeByLabel(destinationLabel);
+        if (startNode == null || destinationNode == null) {
+            throw new IllegalArgumentException("Invalid node!");
+        }
+
+ 
+
+        // Perform Dijkstra's algorithm to find the shortest path
+        PriorityQueue<Node> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(node -> node.distance));
+        for (Node node : nodes) {
+            if (node == startNode) {
+                node.distance = 0;
+            } else {
+                node.distance = Integer.MAX_VALUE;
+            }
+            node.previous = null;
+            priorityQueue.add(node);
+        }
+
+ 
+
+        while (!priorityQueue.isEmpty()) {
+            Node currentNode = priorityQueue.poll();
+
+ 
+
+            for (Edge edge : currentNode.edges) {
+                Node neighborNode = edge.destination;
+                int weight = edge.weight;
+                int distance = currentNode.distance + weight;
+
+ 
+
+                if (distance < neighborNode.distance) {
+                    priorityQueue.remove(neighborNode);
+                    neighborNode.distance = distance;
+                    neighborNode.previous = currentNode;
+                    priorityQueue.add(neighborNode);
+                }
+            }
+        }
+
+ 
+
+        // Find the shortest path length
+        return destinationNode.distance;
+    }
 
    private class Node {
        private String label;
@@ -146,6 +198,7 @@ public class maplocation extends javax.swing.JFrame {
      */
     public maplocation() {
         initComponents();
+        setLocationRelativeTo(null);
         destination = Destination.getDestination();
         nachalna = "Русе";
     }
@@ -161,15 +214,32 @@ public class maplocation extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/map(2).jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/pictures/map(2).jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
 
+        jButton1.setText("Проследи");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setBackground(new java.awt.Color(204, 204, 204));
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(236, 6, 14));
+        jButton2.setText("Х");
+
+        jButton3.setText("Exit");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -182,16 +252,30 @@ public class maplocation extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(231, 231, 231)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jButton2)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(46, 46, 46)
+                .addGap(35, 35, 35)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(jButton3))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 233, Short.MAX_VALUE)
+                    .addComponent(jButton2)
+                    .addGap(0, 233, Short.MAX_VALUE)))
         );
 
         pack();
@@ -199,6 +283,9 @@ public class maplocation extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String Vidin, Sofia, Blagoevgrad, Pleven, Plovdiv, Svilengrad, Turnovo, Burgas, Varna, Ruse;
+        
+        
+        
 
         int numNodes = 5;
          Graph graph = new Graph();
@@ -214,8 +301,10 @@ public class maplocation extends javax.swing.JFrame {
        graph.addNode("Благоевград");
        graph.addNode("София");
        graph.addNode("Видин");
-
+       graph.addNode("Стара Загора");
+       graph.addNode("Хасково");
        // Добавяне на претегленост
+       
        graph.addEdge("Русе", "Варна", 192);
        graph.addEdge("Варна", "Русе", 192);
        graph.addEdge("Русе", "Велико Търново", 108);
@@ -238,7 +327,19 @@ public class maplocation extends javax.swing.JFrame {
        graph.addEdge("Плевен", "Видин", 206);
        graph.addEdge("Плевен", "Велико Търново", 121);
        graph.addEdge("Велико Търново", "Плевен", 121);
-
+       graph.addEdge("София" , "Плевен", 132);
+       graph.addEdge("Плевен" , "София", 132);
+       graph.addEdge("Стара Загора", "Пловдив",102);
+       graph.addEdge("Пловдив", "Стара Загора",102);
+       graph.addEdge("Велико Търново", "Стара Загора",107);
+       graph.addEdge("Стара Загора", "Велико Търново",107);
+       graph.addEdge("Стара Загора", "Хасково",60);
+       graph.addEdge("Хасково", "Стара Загора",60);
+       graph.addEdge("Бургас", "Стара Загора",172);
+       graph.addEdge("Стара Загора", "Бургас",172);
+       graph.addEdge("Хасково", "Свиленград", 74);
+       graph.addEdge("Свиленград", "Хасково",74);
+               
        // Взимане на съседите
        /*List<Graph.Edge> neighbors = graph.getNeighbors("Велико Търново");
        System.out.println("Neighbors of Велико Търново: ");
@@ -253,51 +354,35 @@ public class maplocation extends javax.swing.JFrame {
         
       
         List<String> shortestPath = graph.shortestPathFromATo(destination);
+        int shortestPathLength = graph.shortestPathLengthFromATo(destination);
         
+        System.out.println("Shortest path length from " + nachalna + " to " + destination + ": " + shortestPathLength);
         
-       System.out.println("Shortest path from" + nachalna + "to" + destination + ": ");
+       //JOptionPane.showMessageDialog(null,"Shortest path from " + nachalna + " to "  + destination + ":" + "\n" + cities);
+       System.out.println("Shortest path from " + nachalna + "to " + destination + ": ");
+       LinkedList<String> cities = new LinkedList<>();
        for (String node : shortestPath) {
-           System.out.print(node + " ");
+           //System.out.print(node + " ");
+           cities.add(node);
         }
+       JOptionPane.showMessageDialog(null,"Shortest path from " + nachalna + " to "  + destination + ":" + "\n" + cities + 
+           "\n" + "distance: " + shortestPathLength);
+       
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(maplocation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(maplocation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(maplocation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(maplocation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new maplocation().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

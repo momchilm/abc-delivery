@@ -6,8 +6,10 @@
 package project;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.Random;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,6 +27,7 @@ public class zaqvka extends javax.swing.JFrame {
      */
     public zaqvka() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -59,6 +62,8 @@ public class zaqvka extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -171,7 +176,7 @@ public class zaqvka extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(224, 302, Short.MAX_VALUE)
+                        .addGap(224, 290, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -267,10 +272,10 @@ public class zaqvka extends javax.swing.JFrame {
     int min = 1000;
     
        int br = 0;
-        a = rand.nextInt(max - min + 1 ) + min;
-        Code.setCode(a);
+        //a = rand.nextInt(max - min + 1 ) + min;
+        Code.setCode(rand.nextInt(max - min + 1 ) + min);
         //System.out.println(Code.getCode());
-        JOptionPane.showMessageDialog(null,"Твоя код за получване на поръчката е: \n" + a);
+        JOptionPane.showMessageDialog(null,"Твоя код за получване на поръчката е: \n" + Code.getCode());
         //System.out.println(a);
       //  for(int i = 1000; i <= 9 999; i++){
         //    System.out.println(i);
@@ -297,7 +302,7 @@ public class zaqvka extends javax.swing.JFrame {
         //System.out.print(t);
         //jTextField1.setText("Цена за доставка: " + t + "лв.");
         String imefile;
-        imefile = email1 + ".txt";
+        imefile = Code.getCode() + ".txt";
         String data = null;
         //try {
             File myObj = new File(imefile);
@@ -343,6 +348,18 @@ public class zaqvka extends javax.swing.JFrame {
             }catch(Exception e){
                 JOptionPane.showMessageDialog(rootPane, "Error");
             }
+        //File poruch = new File("poruchli.txt");
+        try{
+            FileWriter writer = new FileWriter("poruchli.txt", true);
+            System.out.println(Code.getCode() + Destination.getDestination());
+            writer.write(Code.getCode() + " " + Destination.getDestination());
+            writer.write("\n");
+            writer.close();
+        }catch(Exception e){
+           JOptionPane.showMessageDialog(rootPane, "Error"); 
+        }
+         
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -361,37 +378,7 @@ setVisible(false);        // TODO add your handling code here:
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(zaqvka.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(zaqvka.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(zaqvka.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(zaqvka.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new zaqvka().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField adress;

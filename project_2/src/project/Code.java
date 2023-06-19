@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author ihsan
+ * @author momchil.hristov
  */
 public class Code {
     private static int code;

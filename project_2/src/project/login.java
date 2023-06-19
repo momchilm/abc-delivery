@@ -59,11 +59,16 @@ public class login extends javax.swing.JFrame {
         password = new javax.swing.JPasswordField();
         seepassword = new javax.swing.JButton();
         unvisiblepassword = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         jButton3.setText("jButton3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(252, 239, 232));
+        setUndecorated(true);
+        setResizable(false);
 
         jLabel1.setBackground(new java.awt.Color(252, 239, 232));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -96,31 +101,43 @@ public class login extends javax.swing.JFrame {
 
         password.setText("jPasswordField1");
 
-        seepassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/newocho.png"))); // NOI18N
+        seepassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/pictures/newocho.png"))); // NOI18N
         seepassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seepasswordActionPerformed(evt);
             }
         });
 
-        unvisiblepassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/crossed-eye-icon-11550225630lc1hsoggeb (1).png"))); // NOI18N
+        unvisiblepassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/pictures/crossed-eye-icon-11550225630lc1hsoggeb (1).png"))); // NOI18N
         unvisiblepassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 unvisiblepasswordActionPerformed(evt);
             }
         });
 
+        jLabel2.setText("Name");
+
+        jLabel3.setText("Email");
+
+        jLabel4.setText("Password");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(107, 107, 107))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel2)))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
                             .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
@@ -141,12 +158,18 @@ public class login extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4))
                     .addComponent(seepassword, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(unvisiblepassword, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -208,9 +231,9 @@ public class login extends javax.swing.JFrame {
         String ime;
         ime = "[A-Z]{1}[a-z]{1,}";
         String abv, gmail, yahoo;
-        abv = "[a-z]{1}[a-z0-9]{1,}[@](abv.bg)";
-        gmail = "[a-z]{1}[a-z0-9]{1,}[@](gmail.com)";
-        yahoo = "[a-z]{1}[a-z0-9]{1,}[@](yahoo.com)";
+        abv = "[a-z]{1}[a-z0-9.]{1,}[@](abv.bg)";
+        gmail = "[a-z]{1}[a-z0-9.]{1,}[@](gmail.com)";
+        yahoo = "[a-z]{1}[a-z0-9.]{1,}[@](yahoo.com)";
         String parola;
         parola = "[a-zA-Z0-9_.']{1,}";
         
@@ -326,6 +349,9 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField name;
     private javax.swing.JPasswordField password;
     private javax.swing.JButton seepassword;
