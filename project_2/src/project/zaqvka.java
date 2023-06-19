@@ -6,8 +6,10 @@
 package project;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.Random;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -270,10 +272,10 @@ public class zaqvka extends javax.swing.JFrame {
     int min = 1000;
     
        int br = 0;
-        a = rand.nextInt(max - min + 1 ) + min;
-        Code.setCode(a);
+        //a = rand.nextInt(max - min + 1 ) + min;
+        Code.setCode(rand.nextInt(max - min + 1 ) + min);
         //System.out.println(Code.getCode());
-        JOptionPane.showMessageDialog(null,"Твоя код за получване на поръчката е: \n" + a);
+        JOptionPane.showMessageDialog(null,"Твоя код за получване на поръчката е: \n" + Code.getCode());
         //System.out.println(a);
       //  for(int i = 1000; i <= 9 999; i++){
         //    System.out.println(i);
@@ -346,6 +348,16 @@ public class zaqvka extends javax.swing.JFrame {
             }catch(Exception e){
                 JOptionPane.showMessageDialog(rootPane, "Error");
             }
+        //File poruch = new File("poruchli.txt");
+        try{
+            FileWriter writer = new FileWriter("poruchli.txt", true);
+            writer.write(Code.getCode() + " " + Destination.getDestination());
+            writer.write("\n");
+        }catch(Exception e){
+           JOptionPane.showMessageDialog(rootPane, "Error"); 
+        }
+         
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

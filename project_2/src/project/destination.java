@@ -12,7 +12,6 @@ import java.util.logging.Logger;
  */
 public class Destination {
     private static String destination;
-    //private static final Logger LOG = Logger.getLogger(destination.class.getName());
 
     public Destination(String destination) {
         this.destination = destination;

@@ -323,7 +323,35 @@ public class poluchavane extends javax.swing.JFrame {
       System.out.println("An error occurred.");
       e.printStackTrace();
     } */
- 
+       File pol = new File("poruchli.txt");
+       String data = null;
+       try {
+            Scanner myReader = new Scanner(pol);
+            
+            while (myReader.hasNextLine()) {
+                data = myReader.nextLine();
+                System.out.println(data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        
+        String [] datas = data.split(" ");
+        
+        for(int i = 0; i < datas.length; i++){
+            System.out.println(datas[i]);
+            if(i % 2 == 0){
+                if(datas[i].equals(a)){
+                    new maplocation().setVisible(true);
+                    Destination.setDestination(datas[i+1]);
+                }
+            }
+        }
+        
+        
+       
  // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
