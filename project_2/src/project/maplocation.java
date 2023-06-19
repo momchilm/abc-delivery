@@ -214,8 +214,10 @@ public class maplocation extends javax.swing.JFrame {
        graph.addNode("Благоевград");
        graph.addNode("София");
        graph.addNode("Видин");
-
+       graph.addNode("Стара Загора");
+       graph.addNode("Хасково");
        // Добавяне на претегленост
+       
        graph.addEdge("Русе", "Варна", 192);
        graph.addEdge("Варна", "Русе", 192);
        graph.addEdge("Русе", "Велико Търново", 108);
@@ -240,7 +242,15 @@ public class maplocation extends javax.swing.JFrame {
        graph.addEdge("Велико Търново", "Плевен", 121);
        graph.addEdge("София" , "Плевен", 132);
        graph.addEdge("Плевен" , "София", 132);
-
+       graph.addEdge("Стара Загора", "Пловдив",102);
+       graph.addEdge("Пловдив", "Стара Загора",102);
+       graph.addEdge("Велико Търново", "Стара Загора",107);
+       graph.addEdge("Стара Загора", "Велико Търново",107);
+       graph.addEdge("Стара Загора", "Хасково",60);
+       graph.addEdge("Хасково", "Стара Загора",60);
+       graph.addEdge("Бургас", "Стара Загора",172);
+       graph.addEdge("Стара Загора", "Бургас",172);
+        
        // Взимане на съседите
        /*List<Graph.Edge> neighbors = graph.getNeighbors("Велико Търново");
        System.out.println("Neighbors of Велико Търново: ");
