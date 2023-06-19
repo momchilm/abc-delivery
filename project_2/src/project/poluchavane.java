@@ -12,6 +12,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -324,32 +326,37 @@ public class poluchavane extends javax.swing.JFrame {
       e.printStackTrace();
     } */
        File pol = new File("poruchli.txt");
-       String data = null;
-       try {
-            Scanner myReader = new Scanner(pol);
-            
-            while (myReader.hasNextLine()) {
-                data = myReader.nextLine();
-                System.out.println(data);
-            }
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+       String data = "";
+       Scanner myReader = null;
+        try {
+            myReader = new Scanner(pol);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(poluchavane.class.getName()).log(Level.SEVERE, null, ex);
         }
+       while (myReader.hasNextLine()) {
+           data += myReader.nextLine() + " " ;
+       }
+       myReader.close();
+        System.out.println(data);
         
         String [] datas = data.split(" ");
-        
         for(int i = 0; i < datas.length; i++){
-            System.out.println(datas[i]);
-                if(datas[i].equals(a)){
-                    new maplocation().setVisible(true);
-                    Destination.setDestination(datas[i+1]);
-                }
+            //System.out.println(datas[i]);
         }
+        
+        for(int i = 0; i < datas.length - 1; i++){
+            System.out.println(datas[i]);
+            int datac;
+            if(i% 2 == 0){
+                datac = Integer.valueOf(datas[i]);
+                if(datac == a1){
+                    Destination.setDestination(datas[i + 1]);
+                    new maplocation().setVisible(true);
+                }
+        }}
         String des = Destination.getDestination();
         System.out.println(des);
-        
+    
         
        
  // TODO add your handling code here:

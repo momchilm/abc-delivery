@@ -26,8 +26,8 @@ public class NewJFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         
         switch(selection){
-            case "Exit":this.setVisible(false);break;
-            case "Log out":this.setVisible(false);new login().setVisible(true); break;
+            case "Exit": this.setVisible(false);break;
+            case "Log out": this.setVisible(false);new login().setVisible(true); break;
             default:break;
         }
         

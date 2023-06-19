@@ -201,7 +201,7 @@ public class login extends javax.swing.JFrame {
         email1 = email.getText();
         password1 = password.getText();
         System.out.println(name1 + email1 + password1);
-        String data = null;
+        String data = "";
         
         LinkedList<String> list = new LinkedList<>();
         
@@ -210,7 +210,7 @@ public class login extends javax.swing.JFrame {
             Scanner myReader = new Scanner(myObj);
             
             while (myReader.hasNextLine()) {
-                data = myReader.nextLine();
+                data += myReader.nextLine() + " ";
                 System.out.println(data);
             }
             myReader.close();
