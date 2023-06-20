@@ -348,7 +348,7 @@ public class poluchavane extends javax.swing.JFrame {
             System.out.println(datas[i]);
             int datac;
             if(i% 2 == 0){
-                datac = Integer.valueOf(datas[i]);
+                datac = Integer.parseInt(datas[i]);
                 if(datac == a1){
                     Destination.setDestination(datas[i + 1]);
                     new maplocation().setVisible(true);

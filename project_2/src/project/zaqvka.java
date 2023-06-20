@@ -109,7 +109,7 @@ public class zaqvka extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Вид доставка:");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "С карта ", "С наложен латеж", "C Paypal" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "С карта ", "С наложен платеж", "C Paypal" }));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setText("Начин на плащане:");
